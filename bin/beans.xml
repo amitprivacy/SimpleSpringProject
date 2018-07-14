@@ -6,5 +6,22 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<context:component-scan base-package="org.springframework.chapter1.service" />
-
+	
+	<bean id="empServiceBean" class="org.packt.Spring.chapter2.ApplicationContext.EmployeeServiceImpl" />
+	
+	<bean id="employee" class="org.packt.Spring.chapter2.constructioninjection.simplejavatype.Employee">
+	<constructor-arg value="Ravi Kant Soni" type="java.lang.String"/>
+	<constructor-arg value="1065" type="java.lang.String"/>
+	<constructor-arg value="28" type="int" />
+	<constructor-arg>
+	<ref bean="a1"/>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="a1" class="org.packt.Spring.chapter2.constructioninjection.simplejavatype.Address">
+	
+	<constructor-arg value="Uttam Nagar" />
+	<constructor-arg value="New Delhi" />
+	<constructor-arg value="India" />
+	</bean>
 </beans>
