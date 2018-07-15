@@ -24,4 +24,38 @@
 	<constructor-arg value="New Delhi" />
 	<constructor-arg value="India" />
 	</bean>
+	
+	<bean id="triangle" class="org.packt.Spring.chapter2.InnerBeans.Triangle">
+	<property name="pointA" ref="pointA"></property>
+	<property name="pointB">
+	<bean class="org.packt.Spring.chapter2.InnerBeans.Point">
+	<property name="x" value="-20"></property>
+	<property name="y" value="0"></property>
+	</bean>
+	</property>
+	<property name="pointC">
+	<bean class="org.packt.Spring.chapter2.InnerBeans.Point">
+	<property name="x" value="30"></property>
+	<property name="y" value="20"></property>
+	</bean>
+	</property>
+	
+	</bean>
+	
+	<bean id="pointA" class="org.packt.Spring.chapter2.InnerBeans.Point">
+	<property name="x" value="10"></property>
+	<property name="y" value="5"></property>
+	</bean>
+	
+	<!-- **********************Bean Inheritance Example*********************** -->
+	
+	<bean id="indianEmployee" class="org.packt.Spring.chapter2.beaninheritance.Employee">
+	<property name="country" value="India"></property>
+	</bean>
+	
+	<bean id="employeeBean" class="org.packt.Spring.chapter2.beaninheritance.Employee" parent="indianEmployee">
+	<property name="employeeId" value="101244"></property>
+	<property name="employeeName" value="Amit"></property>
+	</bean>
+	<!-- **********************Bean Inheritance Example End*********************** -->
 </beans>
